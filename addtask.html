@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dp To do list</title>
+</head>
+<body>
+    <h1 id="topic">To-Do-List</h1>
+    <input id="type" type="text" placeholder="Enter your task" required>
+    <button id="add_btn" onclick="addtask()">Add task</button>
+    <ol id="add">
+    </ol>
+   
+    <style>
+
+    body{
+        background-color: #ffc0cbfb;
+        text-align: center;
+            
+    }
+        #topic{
+            text-align: center;
+            justify-content: center;
+            display: flex;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #type{
+            border-radius: 8px;
+            box-sizing: border-box;
+            padding: 8px;
+        }
+        #add_btn{
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            size: 8px;
+            background-color: lightgreen;
+            
+        }
+        .task-item {
+  border: 1px solid #ccc;     /* border around each task */
+  padding: 10px 15px;         /* some padding inside the box */
+  margin-bottom: 12px;        /* space between boxes */
+  font-size: 16px;
+  border-radius: 6px;         /* rounded corners */
+  background-color: #fff;     /* white background inside the box */
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* subtle shadow */
+}
+        .del_btn {
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 16px;
+}
+#add {
+    padding-left:0;
+    margin-left: 0;
+    list-style-position: inside;
+}
+    </style>
+
+
+
+    
+
+    <script>
+
+function addtask(){
+
+    var p= document.getElementById("add")
+    var input= document.getElementById("type")
+      var new_task_add=input.value
+if(new_task_add==""){
+    alert("There is no task you specified")
+}
+      else{
+    var newtask =document.createElement("li")
+    newtask.style.fontFamily =  "Verdana, Geneva, Tahoma, sans-serif";
+    newtask.className="task-item"
+    newtask.innerHTML=new_task_add+ "<button class='del_btn'  onclick='deleteTasks(event)'> Delete task</button>"
+    p.append(newtask)
+      }
+    
+}
+const newTask = document.createElement("li");
+
+            newTask.innerHTML = `
+                ${taskValue} <button class="del_btn" onclick="deleteTask(event)">Delete Task</button>`;
+            
+ function deleteTasks(event){
+    
+    event.target.parentElement.remove()
+ }
+    </script>
+</body>
+</html>
